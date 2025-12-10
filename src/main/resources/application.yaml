@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: demo
+
+management:
+  otlp:
+    metrics:
+      export:
+        url: http://localhost:4318/v1/metrics
+  opentelemetry:
+    logging:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/logs
+    tracing:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/traces
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
